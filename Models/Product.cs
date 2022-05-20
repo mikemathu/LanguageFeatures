@@ -4,6 +4,7 @@
     {
         public string Name { get; set; }
         public decimal? Price { get; set; }
+        public Product Related { get; set; }//"Chaining the Null Conditional Operator." -property that nests references, creating a more complex hierarchy
         public static Product[] GetProducts()
         {
             Product kayak = new Product
@@ -16,6 +17,8 @@
                 Name = "Lifejacket",
                 Price = 48.95M
             };
+            kayak.Related = lifejacket;
+
             return new Product[] { kayak, lifejacket, null };
         }
     }

@@ -27,20 +27,38 @@ namespace LanguageFeatures.Controllers
             List<string> results = new List<string>();
             foreach (Product p in Product.GetProducts())
             {
-                string name = p?.Name;
-                decimal? price = p?.Price;
+                //string name = p?.Name;
+                //decimal? price = p?.Price;
 
 
-                /*
-                  "Detecting Nested null Values"
-                    The result is that the relatedName variable will be null when p is null or when p.Related is null. 
-`                   Otherwise, the variable will be assigned the value of the p.Related.Name property.
+                /*                 
+                  *"Detecting Nested null Values"
+                  *The result is that the relatedName variable will be null when p is null or when p.Related is null. 
+`                 * Otherwise, the variable will be assigned the value of the p.Related.Name property.
                  
-                 */
+                 
                 string relatedName = p?.Related?.Name; // The null conditional operator can be applied to each part of a chain of properties, like this line of code.
                 results.Add(string.Format("Name: {0}, Price: {1}, Related: {2}",
                     name, price, relatedName));
-                
+                */
+
+
+                /*"Combining Null Operators and Coalescing Operators"
+                 The null conditional operator ensures that I don’t get a 'NullReferenceException' when navigating 
+                through the object properties, and the null coalescing operator ensures that I don’t include 'null' values in 
+                the results displayed in the browser. 
+                 */
+                string name = p?.Name ?? "<No Name>";
+                decimal? price = p?.Price ?? 0;
+                string relatedName = p?.Related?.Name ?? "<None>";
+                results.Add(string.Format("Name: {0}, Price: {1}, Related: {2}",
+                    name, price, relatedName));
+
+
+
+
+
+
 
             }
             return View(results);

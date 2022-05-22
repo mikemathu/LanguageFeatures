@@ -52,7 +52,7 @@ namespace LanguageFeatures.Controllers
                 decimal? price = p?.Price ?? 0;
                 string relatedName = p?.Related?.Name ?? "<None>";
                 results.Add(string.Format("Name: {0}, Price: {1}, Related: {2}",
-                    name, price, relatedName));
+                    name, price, relatedName));//The string.Format method is the traditional C# tool for composing strings that contain data values. different approach to this is called 'string intepolation'
 
 
 

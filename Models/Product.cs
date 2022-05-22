@@ -4,8 +4,7 @@
     {
         /*"Assigning a value to a read-only property"
          
-        The constructor allows the value for the read-only property to be specified as an argument and defaults to true if no value is provided. The property value cannot be changed once set by the constructor
-         
+        The constructor allows the value for the read-only property to be specified as an argument and defaults to true if no value is provided. The property value cannot be changed once set by the constructor        
          
          
          */
